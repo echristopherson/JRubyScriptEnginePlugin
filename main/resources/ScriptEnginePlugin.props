@@ -1,4 +1,3 @@
-christopherson.eric.JRubyScriptEnginePlugin.depend.2=plugin com.townsfolkdesigns.jedit.plugins.scripting.ScriptEnginePlugin 0.3.0
 christopherson.eric.JRubyScriptEnginePlugin.activate=defer
 christopherson.eric.JRubyScriptEnginePlugin.author=Eric Christopherson
 christopherson.eric.JRubyScriptEnginePlugin.depend.0=jdk 1.5
