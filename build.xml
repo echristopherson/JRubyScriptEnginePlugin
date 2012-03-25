@@ -69,9 +69,9 @@
 	<!-- Package all classes, resources, and configuration files into jar. -->
 	<target name="package-main" depends="build-main">
 		<jar destfile="${main.dist.dir}/${main.jar.name}">
-			<fileset dir="${main.build.dir}" />
-			<fileset dir="${main.config.dir}" />
-			<fileset dir="${main.resource.dir}" />
+			<fileset dir="${main.build.dir}" excludes="**/*.swp" />
+			<fileset dir="${main.config.dir}" excludes="**/*.swp" />
+			<fileset dir="${main.resource.dir}" excludes="**/*.swp" />
 		</jar>
 	</target>
 	<!-- Prepare dist directory for installation -->
