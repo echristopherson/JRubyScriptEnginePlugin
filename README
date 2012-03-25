@@ -1,0 +1,2 @@
+JRubyScriptEnginePlugin provides jEdit with the ability to use JRuby (as a JSR-223 scripting engine) to run buffers and implement macros.
+

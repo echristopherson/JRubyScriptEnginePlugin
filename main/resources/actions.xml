@@ -1,0 +1,19 @@
+<!DOCTYPE ACTIONS SYSTEM "actions.dtd">
+<ACTIONS>
+	<!--
+	<ACTION NAME="scriptengineplugin.evaluate.buffer">
+		<CODE>
+			com.townsfolkdesigns.jedit.plugins.scripting.ScriptEnginePlugin.evaluateBuffer(view);
+		</CODE>
+	</ACTION>
+	<ACTION NAME="scriptengineplugin.evaluate.selection">
+		<CODE>
+			com.townsfolkdesigns.jedit.plugins.scripting.ScriptEnginePlugin.evaluateSelection(view);
+		</CODE>
+	</ACTION>
+	-->
+</ACTIONS>
+
+
+
+

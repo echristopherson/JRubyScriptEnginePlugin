@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<project name="JRubyScriptEnginePlugin" basedir="." default="dist">
+	
+	<!-- local.build.properties contains machine specific properties -->
+	<property file="local.build.properties" />
+	<!-- build.properties contains properties that are committable -->
+	<property file="build.properties" />
+	
+	<!-- setup the jEdit properties -->
+	<property name="jedit.install.dir" value=".." />
+	<property name="install.dir" value=".." />
+	<property name="jedit.plugins.dir" value="${install.dir}" />
+	
+	<!-- Main / Production properties and Targets {{{ -->
+	
+	<!-- Main properties {{{ -->
+	<property name="main.dir" value="./main" />
+	<property name="main.src.dir" value="${main.dir}/src" />
+	<property name="main.java.dir" value="${main.src.dir}/java" />
+	<property name="main.lib.dir" value="${main.dir}/lib" />
+	<property name="main.resource.dir" value="${main.dir}/resources" />
+	<property name="main.config.dir" value="${main.dir}/config" />
+	<property name="main.build.dir" value="${main.dir}/build" />
+	<property name="main.dist.dir" value="${main.dir}/dist" />
+	<property name="main.install.dir" value="../.." />
+	<property name="main.jar.name" value="JRubyScriptEnginePlugin.jar" />
+	
+	<!-- compilation properties -->
+	<property name="main.javac.debug" value="true" />
+	<property name="main.javac.deprecation" value="true" />
+	<property name="main.javac.fail_on_error" value="true" />
+	<property name="main.javac.optimize" value="true" />
+	<!-- }}} Main Properties -->
+	
+	<!-- Main classpath {{{ -->
+	<path id="main-classpath">
+		<!-- Application Jars -->
+		<fileset dir="${jedit.install.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<!-- Other plugins jars -->
+		<fileset dir="${jedit.plugins.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<!-- Your jars -->
+		<fileset dir="${main.lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<!-- Your compiled classes -->
+		<pathelement path="${main.build.dir}" />
+	</path>
+	<!-- }}} Main classpath -->
+	
+	<!-- Main Targets {{{ -->
+	<target name="clean-main">
+		<delete dir="${main.build.dir}" />
+		<mkdir dir="${main.build.dir}"/>
+		<delete dir="${main.dist.dir}" />
+		<mkdir dir="${main.dist.dir}"/>
+	</target>
+	
+	<!-- Compile main Java files -->
+	<target name="build-main" depends="clean-main">
+		<javac debug="${main.javac.debug}" deprecation="${main.javac.deprecation}" destdir="${main.build.dir}" failonerror="${main.javac.fail_on_error}" optimize="${main.javac.optimize}">
+			<src path="${main.java.dir}" />
+			<classpath refid="main-classpath" />
+		</javac>
+	</target>
+	<!-- Package all classes, resources, and configuration files into jar. -->
+	<target name="package-main" depends="build-main">
+		<jar destfile="${main.dist.dir}/${main.jar.name}">
+			<fileset dir="${main.build.dir}" />
+			<fileset dir="${main.config.dir}" />
+			<fileset dir="${main.resource.dir}" />
+		</jar>
+	</target>
+	<!-- Prepare dist directory for installation -->
+	<target name="dist-main" depends="package-main">
+		<copy todir="${main.dist.dir}">
+			<fileset dir="${main.lib.dir}">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+	</target>
+	<!-- Copy contents of main/dist to the install directory -->
+	<target name="install-main" depends="dist-main">
+		<copy todir="${install.dir}">
+			<fileset dir="${main.dist.dir}">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+	</target>
+	<!-- }}} Main Targets -->
+	<!-- }}} Main / Production properties and Targets -->
+	
+	<!-- Test properties and Targets {{{ -->
+	
+	<!-- Test properties {{{ -->
+	<property name="test.dir" value="./test" />
+	<property name="test.src.dir" value="${test.dir}/src" />
+	<property name="test.java.dir" value="${test.src.dir}/java" />
+	<property name="test.lib.dir" value="${test.dir}/lib" />
+	<property name="test.resource.dir" value="${test.dir}/resources" />
+	<property name="test.config.dir" value="${test.dir}/config" />
+	<property name="test.build.dir" value="${test.dir}/build" />
+	<property name="test.dist.dir" value="${test.dir}/dist" />
+	<property name="test.jar.name" value="JRubyScriptEnginePlugin-Test.jar" />
+	
+	<!-- compilation properties -->
+	<property name="test.javac.debug" value="${main.javac.debug}" />
+	<property name="test.javac.deprecation" value="${main.javac.deprecation}" />
+	<property name="test.javac.fail_on_error" value="${main.javac.fail_on_error}" />
+	<property name="test.javac.optimize" value="${main.javac.optimize}" />
+	<!-- }}} Test Properties -->
+	
+	<!-- Test classpath {{{ -->
+	<path id="test-classpath">
+		<path refid="main-classpath" />
+		<!-- Your jars -->
+		<fileset dir="${test.lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<!-- Your compiled classes -->
+		<pathelement path="${test.build.dir}" />
+	</path>
+	<!-- }}} Test classpath -->
+	
+	<!-- Test Targets {{{ -->
+	<target name="clean-test">
+		<delete dir="${test.build.dir}" />
+		<mkdir dir="${test.build.dir}"/>
+		<delete dir="${test.dist.dir}" />
+		<mkdir dir="${test.dist.dir}"/>
+	</target>
+	
+	<!-- Compile test Java files -->
+	<target name="build-test" depends="clean-test">
+		<javac debug="${test.javac.debug}" deprecation="${test.javac.deprecation}" destdir="${test.build.dir}" failonerror="${test.javac.fail_on_error}" optimize="${test.javac.optimize}">
+			<src path="${test.java.dir}" />
+			<classpath refid="test-classpath" />
+		</javac>
+	</target>
+	<!-- Package all classes, resources, and configuration files into jar. -->
+	<target name="package-test" depends="build-test">
+		<jar destfile="${test.dist.dir}/${test.jar.name}">
+			<fileset dir="${test.build.dir}" />
+			<fileset dir="${test.config.dir}" />
+			<fileset dir="${test.resource.dir}" />
+		</jar>
+	</target>
+	<!-- }}} Test Targets -->
+	<!-- }}} Test properties and Targets -->
+	
+	<!-- Common Targets {{{ -->
+	<target name="clean" depends="clean-main, clean-test" />
+	<target name="build" depends="build-main, build-test" />
+	<target name="dist" depends="install-main" />
+	<!-- }}} Common Targets -->
+</project>

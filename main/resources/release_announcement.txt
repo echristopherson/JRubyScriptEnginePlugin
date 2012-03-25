@@ -1,0 +1,27 @@
+Paste the text below into the Plugin Central Submission Tracker at https://sourceforge.net/tracker/?group_id=588&atid=625093
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{{{ JRubyScriptEnginePlugin 0.0.1
+    Source: Source code is in git at https://github.com/echristopherson/JRubyScriptEnginePlugin
+    Announcement: 
+    Requires Java 1.5
+    Requires jEdit 04.03.15.00
+    Required plugins: 
+        com.townsfolkdesigns.jedit.plugins.scripting.ScriptEnginePlugin 0.3.0
+    Libraries to be bundled with the release:
+        JRuby 1.6.7 - jruby-complete-1.6.7.jar is committed in plugin's git /main/lib directory
+    
+    Short Description: Provides jEdit with the ability to use JRuby (as a JSR-223 scripting engine) to run buffers and implement macros.
+
+    
+    Long Description: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>JRubyScriptEnginePlugin</title>
+	</head>
+	<body>
+		JRubyScriptEnginePlugin provides jEdit with the ability to use JRuby (as a JSR-223 scripting engine) to run buffers and implement macros.
+	</body>
+</html>
+ }}}

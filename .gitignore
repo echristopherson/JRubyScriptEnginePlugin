@@ -1,0 +1,7 @@
+*.swp
+*~
+\#*#
+.DS_Store
+main/build/*
+main/dist/*
+main/lib/*

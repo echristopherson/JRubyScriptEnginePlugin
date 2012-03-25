@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE SERVICES SYSTEM "services.dtd">
+<SERVICES>
+    <SERVICE CLASS="com.townsfolkdesigns.jedit.plugins.scripting.ScriptEngineService" NAME="JRubyScriptEngine">
+        return new christopherson.eric.JRubyScriptEnginePlugin();
+    </SERVICE>
+</SERVICES>	 
