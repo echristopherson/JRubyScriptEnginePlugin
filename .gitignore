@@ -5,3 +5,4 @@
 main/build/*
 main/dist/*
 main/lib/*
+/build.sh
