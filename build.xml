@@ -53,9 +53,13 @@
 	
 	<!-- Main Targets {{{ -->
 	<target name="clean-main">
-		<delete dir="${main.build.dir}" />
+		<delete verbose="true">
+			<fileset dir="${main.build.dir}" includes="*" />
+		</delete>
 		<mkdir dir="${main.build.dir}"/>
-		<delete dir="${main.dist.dir}" />
+		<delete verbose="true">
+			<fileset dir="${main.dist.dir}" includes="*" />
+		</delete>
 		<mkdir dir="${main.dist.dir}"/>
 	</target>
 	
@@ -127,10 +131,14 @@
 	
 	<!-- Test Targets {{{ -->
 	<target name="clean-test">
-		<delete dir="${test.build.dir}" />
+		<delete verbose="true">
+			<fileset dir="${test.build.dir}" includes="*" />
+		</delete>
 		<mkdir dir="${test.build.dir}"/>
-		<delete dir="${test.dist.dir}" />
-		<mkdir dir="${test.dist.dir}"/>
+		<delete verbose="true">
+			<fileset dir="${test.dist.dir}" includes="*" />
+		</delete>
+		<mkdir dir="${main.dist.dir}"/>
 	</target>
 	
 	<!-- Compile test Java files -->
