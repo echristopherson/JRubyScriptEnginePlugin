@@ -7,3 +7,5 @@ main/dist/*
 main/lib/*
 /build.sh
 /install.sh
+test/build/*
+test/dist/*
