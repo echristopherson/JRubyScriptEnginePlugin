@@ -2,3 +2,5 @@
 *
 # Except this file
 !.gitignore
+# And script file(s) we want to include (TODO: find better place)
+!*.bsh
