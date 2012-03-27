@@ -1,0 +1,67 @@
+// Startup script that causes jEdit to load the JRuby interpreter on startup, as long as ScriptEnginePlugin is enabled
+
+// Set JRuby to Ruby 1.9-compatible mode
+System.setProperty("jruby.compat.version", org.jruby.CompatVersion.RUBY1_9.toString());
+
+
+
+import javax.script.ScriptContext;
+import javax.script.ScriptEngine;
+//import javax.script.ScriptEngineFactory;
+import javax.script.SimpleScriptContext;
+
+//import org.gjt.sp.jedit.Macros;
+//import org.gjt.sp.jedit.Mode;
+//import org.gjt.sp.jedit.View;
+//import org.gjt.sp.jedit.jEdit;
+//import org.gjt.sp.util.Log;
+
+import com.townsfolkdesigns.jedit.plugins.scripting.ScriptEngineUtilities;
+import com.townsfolkdesigns.jedit.plugins.scripting.ScriptEngineDelegate;
+
+// Reimplementation of MacroDelegate#executeMacro -- doesn't depend on a View
+public void executeMacro(String scriptPath, String modeStr) {
+  Mode mode = jEdit.getMode(modeStr);
+  File bshScriptFile = new File(scriptPath);
+  String bshScriptName = bshScriptFile.getName();
+  int indexOfDot = bshScriptName.lastIndexOf(".");
+  bshScriptName = bshScriptName.substring(0, indexOfDot);
+
+  String scriptExtension = ScriptEngineUtilities.getScriptExtension(mode);
+  String macroScriptName = bshScriptName + "." + scriptExtension;
+  File macroScriptFile = new File(bshScriptFile.getParentFile(), macroScriptName);
+
+  if (macroScriptFile.exists()) {
+     //ORIG: ScriptEngine engine = scriptEngineDelegate.getScriptEngineForMode(mode);
+     ScriptEngine engine = new ScriptEngineDelegate().getScriptEngineForMode(mode);
+     //ORIG: ScriptContext scriptContext = ScriptEngineUtilities.getDefaultScriptContext(view);
+     ScriptContext scriptContext = new SimpleScriptContext();
+     // override the scriptPath variable with the path to the macro file.
+     scriptContext.setAttribute("scriptPath", macroScriptFile, ScriptContext.ENGINE_SCOPE);
+     engine.setContext(scriptContext);
+
+     try {
+        engine.eval(new FileReader(macroScriptFile));
+     } catch (Exception e) {
+        Log.log(Log.ERROR, ScriptExecutionDelegate.class,
+           "Error executing script file: " + macroScriptFile.getPath(), e);
+     }
+  }
+}
+
+
+// Main code
+try {
+    // ORIG: import com.townsfolkdesigns.jedit.plugins.scripting.*;
+    // ORIG: ScriptEnginePlugin plugin = jEdit.getPlugin("com.townsfolkdesigns.jedit.plugins.scripting.ScriptEnginePlugin");
+    // ORIG: MacroDelegate delegate = plugin.getMacroDelegate();
+    // ORIG: delegate.executeMacro(view, scriptPath, "ruby");
+    executeMacro(scriptPath, "ruby"); // use our implementation
+} catch(Exception e) {
+    e.printStackTrace();
+    stackTrace = "" + e.toString() + "\n";
+    for(el : e.getStackTrace()) {
+        stackTrace += " at " + el + "\n";
+    }
+    Macros.message(null, "In startup script " + scriptPath + ", caught exception:\n" + stackTrace);
+}
