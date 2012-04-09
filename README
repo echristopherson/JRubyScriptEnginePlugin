@@ -5,7 +5,7 @@ To build, place JRuby's "complete" jar (e.g. jruby-complete-1.6.7.jar) in main/l
 ant -Dbuild.support PATH-TO-JEDIT-BUILD-SUPPORT-DIR -Djedit.install.dir PATH-TO-JEDIT-INSTALLATION-DIR
 
 Alternately, put a file called <build.properties> in this plugin's root directory or the one just above it, and include the lines:
-    jedit.build.support=PATH-TO-JEDIT-BUILD-SUPPORT-DIR
+    build.support=PATH-TO-JEDIT-BUILD-SUPPORT-DIR
     jedit.install.dir=PATH-TO-JEDIT-INSTALLATION-DIR
 Then ant can be called without settings these two properties on the command line.
 
