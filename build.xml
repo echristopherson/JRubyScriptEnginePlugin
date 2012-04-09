@@ -55,7 +55,7 @@
 	<!-- Main Targets {{{ -->
 	<target name="clean-main">
 		<delete verbose="true">
-			<fileset dir="${main.build.dir}" includes="*" />
+			<fileset dir="${main.build.dir}" includes="**" />
 		</delete>
 		<mkdir dir="${main.build.dir}"/>
 		<delete verbose="true">
