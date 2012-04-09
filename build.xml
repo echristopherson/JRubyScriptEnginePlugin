@@ -5,6 +5,7 @@
 	<property file="local.build.properties" />
 	<!-- build.properties contains properties that are committable -->
 	<property file="build.properties" />
+	<property file="../build.properties" />
 	
 	<!-- setup the jEdit properties -->
 	<property name="jedit.install.dir" value=".." />
