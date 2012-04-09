@@ -9,3 +9,4 @@ main/lib/*
 /install.sh
 test/build/*
 test/dist/*
+hs_err_pid*.log
