@@ -1,7 +1,33 @@
 // Startup script that causes jEdit to load the JRuby interpreter on startup, as long as ScriptEnginePlugin is enabled
 
-// Set JRuby to Ruby 1.9-compatible mode
+// JRuby properties from <https://github.com/jruby/jruby/wiki/RedBridge> (not
+// all are listed here)
+
+// JRuby home (like JRUBY_HOME env var)
+//System.setProperty("jruby.home", "/Users/yoko/Tools/jruby-1.3.1");
+
+// Ruby class path
+//System.setProperty("org.jruby.embed.class.path", jrubyhome);
+
+// Ruby context instance type
+//System.setProperty("org.jruby.embed.localcontext.scope", "singleton");
+//System.setProperty("org.jruby.embed.localcontext.scope", "threadsafe");
+//System.setProperty("org.jruby.embed.localcontext.scope", "singlethread");
+//System.setProperty("org.jruby.embed.localcontext.scope", "concurrent");
+
+// Ruby local variable behavior
+//System.setProperty("org.jruby.embed.localvariable.behavior", "transient");
+//System.setProperty("org.jruby.embed.localvariable.behavior", "persistent");
+//System.setProperty("org.jruby.embed.localvariable.behavior", "global");
+
+// Ruby compatibility version
+// TODO: <http://kenai.com/projects/jruby/pages/JRubyOptions> says to use
+// org.jruby.embed.compat.version. Is this still recommended? What's the
+// difference?
+//System.setProperty("jruby.compat.version", org.jruby.CompatVersion.RUBY1_8.toString());
 System.setProperty("jruby.compat.version", org.jruby.CompatVersion.RUBY1_9.toString());
+
+
 
 // Reimplementation of MacroDelegate#executeMacro -- doesn't depend on a View
 // or a macro path
@@ -18,7 +44,7 @@ public void executeDummyMacro(String modeStr) {
      engine.setContext(scriptContext);
 
     Log.log(Log.DEBUG, this, "In startup script " + scriptPath + ": attempting to evaluate empty dummy script");
-    engine.eval("");
+    engine.eval(""); // if we don't evaluate *something*, we still have a long wait when we try to launch the first Ruby macro
 }
 
 // Main code
