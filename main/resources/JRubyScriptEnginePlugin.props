@@ -7,3 +7,4 @@ plugin.christopherson.eric.JRubyScriptEnginePlugin.description=Provides jEdit wi
 plugin.christopherson.eric.JRubyScriptEnginePlugin.jars=jruby-complete-1.6.7.jar
 plugin.christopherson.eric.JRubyScriptEnginePlugin.name=JRuby Script Engine Plugin
 plugin.christopherson.eric.JRubyScriptEnginePlugin.version=0.0.1
+plugin.christopherson.eric.JRubyScriptEnginePlugin.usePluginHome=true
