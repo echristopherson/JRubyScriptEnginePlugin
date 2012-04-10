@@ -10,7 +10,7 @@
 	<!-- setup the jEdit properties -->
 	<!--<property name="jedit.install.dir" value=".." />-->
 	<property name="install.dir" value=".." />
-	<property name="jedit.plugins.dir" value="${install.dir}" />
+	<!--<property name="jedit.plugins.dir" value="${install.dir}" />-->
 	
 	<!-- Main / Production properties and Targets {{{ -->
 	
