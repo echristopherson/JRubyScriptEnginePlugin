@@ -2,11 +2,10 @@ Along with the Script Engine Plugin (available from <http://plugins.jedit.org/> 
 
 To build, install the Script Engine Plugin from the Plugin Manager. Then place JRuby's "complete" jar (e.g. jruby-complete-1.6.7.jar) in main/lib; the jar can be found at <http://www.jruby.org/download>. Then run ant as follows:
 
-    ant -Dbuild.support=PATH-TO-JEDIT-BUILD-SUPPORT-DIR -Djedit.install.dir=PATH-TO-JEDIT-INSTALLATION-DIR -Djedit.user.home=PATH-TO-USER-JEDIT-DIR -Djedit.plugins.dir=${jedit.user.home}/jars
+    ant -Djedit.install.dir=PATH-TO-JEDIT-INSTALLATION-DIR -Djedit.plugins.dir=PATH-TO-INSTALLED-PLUGIN-JARS
 
 Alternately, put a file called <build.properties> in this plugin's root directory or the one just above it, and include the lines:
 
-    build.support=PATH-TO-JEDIT-BUILD-SUPPORT-DIR
     jedit.install.dir=PATH-TO-JEDIT-INSTALLATION-DIR
     jedit.plugins.dir=PATH-TO-INSTALLED-PLUGIN-JARS
 
