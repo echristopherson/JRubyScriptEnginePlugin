@@ -54,11 +54,11 @@
 	
 	<!-- Main Targets {{{ -->
 	<target name="clean-main">
-		<delete verbose="true">
+		<delete verbose="true" quiet="true">
 			<fileset dir="${main.build.dir}" includes="**" />
 		</delete>
 		<mkdir dir="${main.build.dir}"/>
-		<delete verbose="true">
+		<delete verbose="true" quiet="true">
 			<fileset dir="${main.dist.dir}" includes="*" />
 		</delete>
 		<mkdir dir="${main.dist.dir}"/>
@@ -132,11 +132,11 @@
 	
 	<!-- Test Targets {{{ -->
 	<target name="clean-test">
-		<delete verbose="true">
-			<fileset dir="${test.build.dir}" includes="*" />
+		<delete verbose="true" quiet="true">
+			<fileset dir="${test.build.dir}" includes="**" />
 		</delete>
 		<mkdir dir="${test.build.dir}"/>
-		<delete verbose="true">
+		<delete verbose="true" quiet="true">
 			<fileset dir="${test.dist.dir}" includes="*" />
 		</delete>
 		<mkdir dir="${main.dist.dir}"/>
