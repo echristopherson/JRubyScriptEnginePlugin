@@ -9,7 +9,7 @@ import org.gjt.sp.jedit.Mode;
 import org.gjt.sp.jedit.jEdit;
 
 /**
- * The JRubyScriptEnginePlugin provides the Groovy ScriptEngine to jEdit plugins.
+ * The JRubyScriptEnginePlugin provides the Ruby ScriptEngine to jEdit plugins.
  * @author Eric Christopherson (echristopherson at gmail dot com)
  */
 public class JRubyScriptEnginePlugin extends EditPlugin implements ScriptEngineService {
