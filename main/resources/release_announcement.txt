@@ -10,7 +10,7 @@ Paste the text below into the Plugin Central Submission Tracker at https://sourc
     Required plugins: 
         com.townsfolkdesigns.jedit.plugins.scripting.ScriptEnginePlugin 0.3.0
     Libraries to be bundled with the release:
-        JRuby 1.6.7 - jruby-complete-1.6.7.jar is committed in plugin's git /main/lib directory
+        JRuby 1.7.0 - jruby-complete-1.7.0.jar is committed in plugin's git /main/lib directory
     
     Short Description: Provides jEdit with the ability to use JRuby (as a JSR-223 scripting engine) to run buffers and implement macros.
 
