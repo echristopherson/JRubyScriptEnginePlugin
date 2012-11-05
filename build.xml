@@ -66,7 +66,7 @@
 	
 	<!-- Compile main Java files -->
 	<target name="build-main" depends="clean-main">
-		<javac debug="${main.javac.debug}" deprecation="${main.javac.deprecation}" destdir="${main.build.dir}" failonerror="${main.javac.fail_on_error}" optimize="${main.javac.optimize}" includeantruntime="false">
+		<javac debug="${main.javac.debug}" deprecation="${main.javac.deprecation}" destdir="${main.build.dir}" failonerror="${main.javac.fail_on_error}" optimize="${main.javac.optimize}" includeantruntime="false" source="1.6" target="1.6">
 			<src path="${main.java.dir}" />
 			<classpath refid="main-classpath" />
 		</javac>
@@ -144,7 +144,7 @@
 	
 	<!-- Compile test Java files -->
 	<target name="build-test" depends="clean-test">
-		<javac debug="${test.javac.debug}" deprecation="${test.javac.deprecation}" destdir="${test.build.dir}" failonerror="${test.javac.fail_on_error}" optimize="${test.javac.optimize}" includeantruntime="false">
+		<javac debug="${test.javac.debug}" deprecation="${test.javac.deprecation}" destdir="${test.build.dir}" failonerror="${test.javac.fail_on_error}" optimize="${test.javac.optimize}" includeantruntime="false" source="1.6" target="1.6">
 			<src path="${test.java.dir}" />
 			<classpath refid="test-classpath" />
 		</javac>
