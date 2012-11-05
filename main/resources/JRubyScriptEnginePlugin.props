@@ -1,6 +1,6 @@
 plugin.christopherson.eric.JRubyScriptEnginePlugin.activate=defer
 plugin.christopherson.eric.JRubyScriptEnginePlugin.author=Eric Christopherson
-plugin.christopherson.eric.JRubyScriptEnginePlugin.depend.0=jdk 1.5
+plugin.christopherson.eric.JRubyScriptEnginePlugin.depend.0=jdk 1.6
 plugin.christopherson.eric.JRubyScriptEnginePlugin.depend.1=jedit 04.03.15.00
 plugin.christopherson.eric.JRubyScriptEnginePlugin.depend.2=plugin com.townsfolkdesigns.jedit.plugins.scripting.ScriptEnginePlugin 0.3.0
 plugin.christopherson.eric.JRubyScriptEnginePlugin.description=Provides jEdit with the ability to use JRuby (as a JSR-223 scripting engine) to run buffers and implement macros.
