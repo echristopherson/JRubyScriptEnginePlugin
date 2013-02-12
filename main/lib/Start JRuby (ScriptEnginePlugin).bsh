@@ -38,11 +38,11 @@ import javax.script.SimpleScriptContext;
 import com.townsfolkdesigns.jedit.plugins.scripting.ScriptEngineDelegate;
 
 public void executeDummyMacro(String modeStr) {
-  Mode mode = jEdit.getMode(modeStr);
-     ScriptEngine engine = new ScriptEngineDelegate().getScriptEngineForMode(mode);
-     ScriptContext scriptContext = new SimpleScriptContext();
-     engine.setContext(scriptContext);
-
+    Mode mode = jEdit.getMode(modeStr);
+    ScriptEngine engine = new ScriptEngineDelegate().getScriptEngineForMode(mode);
+    ScriptContext scriptContext = new SimpleScriptContext();
+    engine.setContext(scriptContext);
+    
     Log.log(Log.DEBUG, this, "In startup script " + scriptPath + ": attempting to evaluate empty dummy script");
     engine.eval(""); // if we don't evaluate *something*, we still have a long wait when we try to launch the first Ruby macro
 }
