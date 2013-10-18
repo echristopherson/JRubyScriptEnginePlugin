@@ -1,6 +1,6 @@
 Along with the Script Engine Plugin (available from <http://plugins.jedit.org/> or from jEdit's Plugin Manager), JRubyScriptEnginePlugin provides jEdit with the ability to use JRuby (as a JSR-223 scripting engine) to run buffers and implement macros.
 
-To build, install the Script Engine Plugin from the Plugin Manager. Then place JRuby's "complete" jar (e.g. jruby-complete-1.7.0.jar) in main/lib; the jar can be found at <http://www.jruby.org/download>. Then run ant as follows:
+To build, install the Script Engine Plugin from the Plugin Manager. Then place JRuby's "complete" jar (e.g. jruby-complete-1.7.5.jar) in main/lib; the jar can be found at <http://www.jruby.org/download>. Then run ant as follows:
 
     ant -Djedit.install.dir=PATH-TO-JEDIT-INSTALLATION-DIR -Djedit.plugins.dir=PATH-TO-INSTALLED-PLUGIN-JARS
 
@@ -23,6 +23,6 @@ Description of paths mentioned above:
     PATH-TO-JAVA-6-RT.JAR: fully-qualified path to the Java 6 JRE/JDK's rt.jar file, or classes.jar in OS X.
 
 
-The current version of this plugin uses JRuby 1.7.0. To use a different version, change the plugin.christopherson.eric.JRubyScriptEnginePlugin.jars property in main/resources/JRubyScriptEnginePlugin.props to reference the appropriate jar.
+The current version of this plugin uses JRuby 1.7.5. To use a different version, change the plugin.christopherson.eric.JRubyScriptEnginePlugin.jars property in main/resources/JRubyScriptEnginePlugin.props to reference the appropriate jar.
 
 jEdit's build support dir is available from SVN at <https://jedit.svn.sourceforge.net/svnroot/jedit/build-support/trunk>; . I'm not sure if it can be downloaded except from SVN.
