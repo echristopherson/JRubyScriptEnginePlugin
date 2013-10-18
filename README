@@ -4,10 +4,15 @@ To build, install the Script Engine Plugin from the Plugin Manager. Then place J
 
     ant -Djedit.install.dir=PATH-TO-JEDIT-INSTALLATION-DIR -Djedit.plugins.dir=PATH-TO-INSTALLED-PLUGIN-JARS
 
+If building with JDK 7 or higher, you may have have a Java 6 JRE or JDK installed, and supply the Java 6 boot classpath, by adding
+
+    -Djava6.boot.classpath=PATH-TO-JAVA-6-RT.JAR
+
 Alternately, put a file called <build.properties> in this plugin's root directory or the one just above it, and include the lines:
 
     jedit.install.dir=PATH-TO-JEDIT-INSTALLATION-DIR
     jedit.plugins.dir=PATH-TO-INSTALLED-PLUGIN-JARS
+    java6.boot.classpath=PATH-TO-JAVA-6-RT.JAR
 
 Then ant can be called without settings these two properties on the command line.
 
