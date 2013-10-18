@@ -16,6 +16,13 @@ Alternately, put a file called <build.properties> in this plugin's root director
 
 Then ant can be called without settings these two properties on the command line.
 
+Description of paths mentioned above:
+
+    PATH-TO-JEDIT-INSTALLATION-DIR: directory where jEdit is installed (specifically its jedit.jar). With the OS X app, this is /Applications/jEdit.app/Contents/Resources/Java.
+    PATH-TO-INSTALLED-PLUGIN-JARS: directory where plugin jars are installed (specifically ScriptEnginePlugin.jar); generally this will be ${HOME}/.jedit/jars (or ${HOME}/Library/jEdit/jars with the OS X app), or the jars subdirectory of the jEdit installation directory.
+    PATH-TO-JAVA-6-RT.JAR: fully-qualified path to the Java 6 JRE/JDK's rt.jar file, or classes.jar in OS X.
+
+
 The current version of this plugin uses JRuby 1.7.0. To use a different version, change the plugin.christopherson.eric.JRubyScriptEnginePlugin.jars property in main/resources/JRubyScriptEnginePlugin.props to reference the appropriate jar.
 
 jEdit's build support dir is available from SVN at <https://jedit.svn.sourceforge.net/svnroot/jedit/build-support/trunk>; . I'm not sure if it can be downloaded except from SVN.
